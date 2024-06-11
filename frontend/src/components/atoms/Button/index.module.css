@@ -1,0 +1,19 @@
+ .btn  {
+  transition: all .5s;
+  border-radius: 50%;
+  height: 60px; 
+  width: 60px;
+  position: absolute;
+  left: 50%;
+  top: 7%;
+}
+
+.btn .avatar {
+  height: 30px; 
+  width: 30px;
+}
+
+.btn svg  {
+font-size: 16px;
+color: rgba(232, 13, 13, 0.931);
+}

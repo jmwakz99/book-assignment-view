@@ -36,7 +36,7 @@ test("Should remove book item when delete button is clicked", () => {
   expect(onDeleteBook).toBeCalledWith(book.id);
 });
 
-test("Should add book item when add button is clicked", () => {
+test("Should add book when add button is clicked", () => {
   const onAddBook = jest.fn();
   const book = {
     id: 1,
@@ -45,9 +45,7 @@ test("Should add book item when add button is clicked", () => {
     author: "Author name",
   };
 
-  render(
-    <BookItem book={book} direction="vertical" onDeleteBook={onAddBook} />,
-  );
+  render(<BookItem book={book} direction="horizontal" onAddBook={onAddBook} />);
 
   const addButton = screen.getByTestId("add-button");
 

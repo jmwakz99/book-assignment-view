@@ -1,8 +1,6 @@
-import { Close } from "@mui/icons-material";
 import {
   Avatar,
   Box,
-  Button,
   ListItem,
   ListItemAvatar,
   Typography,
@@ -10,6 +8,7 @@ import {
 import { FC } from "react";
 
 import { BookWithAdditionalProperties } from "@components/particles/types/book";
+import Button from "../../atoms/Button";
 import classes from "./index.module.css";
 
 interface BookItemProps {
@@ -34,16 +33,12 @@ const BookItem: FC<BookItemProps> = ({
       <ListItem
         secondaryAction={
           <Button
-            variant="contained"
-            size="small"
-            onClick={() =>
-              onAddBook && onAddBook(book as BookWithAdditionalProperties)
-            }
-            data-testid="add-button"
-            disabled={addLoading}
-          >
-            {addLoading ? "Adding..." : "Read"}
-          </Button>
+            buttonType="button"
+            onClick={() => onAddBook && onAddBook(book)}
+            loading={addLoading}
+            label="Read"
+            testId="add-button"
+          />
         }
         className={classes["horizontal-book-item"]}
         alignItems="center"
@@ -86,19 +81,12 @@ const BookItem: FC<BookItemProps> = ({
         <Box className={`${classes["cover"]} ${classes["back"]}`}></Box>
       </Box>
       <Button
-        size="small"
-        variant="text"
+        buttonType="icon-button"
         onClick={() => onDeleteBook && onDeleteBook(book?.id as number)}
-        data-testid="delete-button"
-        disabled={deleteLoading}
-      >
-        <Avatar
-          style={{ height: "30px", width: "30px" }}
-          className={classes.avatar}
-        >
-          <Close style={{ fontSize: "16px" }} />
-        </Avatar>
-      </Button>
+        testId="delete-button"
+        loading={deleteLoading}
+        icon="close"
+      />
     </Box>
   );
 };
