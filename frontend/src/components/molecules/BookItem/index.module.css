@@ -168,8 +168,6 @@
 }
 
 
-
-
 .horizontal-book-item {
   background-color: rgb(255, 255, 255);
     color: rgba(0, 0, 0, 0.87);
@@ -177,6 +175,7 @@
     border-radius: 5px;
     border: 1px solid rgba(0, 0, 0, 0.12);
     overflow: hidden;
+   
 }
 .horizontal-book-item .avatar {
   width: 100px;
@@ -191,13 +190,13 @@
 }
 
 .horizontal-book-item h4 {
-  font-size: 12px;
+  font-size: 14px;
   font-weight: bold;
 
 }
 
 .horizontal-book-item p {
-  font-size: 12px;
+  font-size: 14px;
  
 }
 
@@ -208,10 +207,10 @@
 @media(max-width: 568px){
  
   .horizontal-book-item p {
-    font-size: 9px;
+    font-size: 12px;
   }
   .horizontal-book-item  button {
-    font-size: 9px;
+    font-size: 12px;
     
   }
 }

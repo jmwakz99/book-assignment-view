@@ -17,6 +17,12 @@ const meta: Meta<typeof BookItem> = {
     onAddBook: { action: "onAddBook" },
     addLoading: { control: { type: "boolean" } },
     deleteLoading: { control: { type: "boolean" } },
+    icon: {
+      control: {
+        type: "select",
+        options: ["close", "delete"],
+      },
+    },
   },
 };
 
@@ -55,6 +61,7 @@ export const Vertical: Story = {
       coverPhotoURL: "https://picsum.photos/200/300",
       author: "Author name",
     },
+    icon: "close",
   },
 };
 

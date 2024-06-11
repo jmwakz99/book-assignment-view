@@ -18,6 +18,7 @@ interface BookItemProps {
   onDeleteBook?: (id: number) => void;
   deleteLoading?: boolean;
   addLoading?: boolean;
+  icon?: "close" | "delete";
 }
 
 const BookItem: FC<BookItemProps> = ({
@@ -27,6 +28,7 @@ const BookItem: FC<BookItemProps> = ({
   onDeleteBook,
   addLoading,
   deleteLoading,
+  icon,
 }) => {
   if (direction === "horizontal") {
     return (
@@ -43,7 +45,14 @@ const BookItem: FC<BookItemProps> = ({
         className={classes["horizontal-book-item"]}
         alignItems="center"
       >
-        <ListItemAvatar>
+        <ListItemAvatar
+          sx={{
+            display: {
+              xs: "none",
+              md: "flex",
+            },
+          }}
+        >
           <Avatar
             variant="square"
             alt={book?.title as string}
@@ -85,7 +94,7 @@ const BookItem: FC<BookItemProps> = ({
         onClick={() => onDeleteBook && onDeleteBook(book?.id as number)}
         testId="delete-button"
         loading={deleteLoading}
-        icon="close"
+        icon={icon}
       />
     </Box>
   );
