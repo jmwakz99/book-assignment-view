@@ -1,0 +1,239 @@
+.shelf {
+  margin: 3em;
+  text-align: center;
+}
+.shelf .book-ui {
+  width: 120px;
+  height: 160px;
+  transform-style: preserve-3d;
+  perspective: 900px;
+  position: relative;
+  display: inline-block;
+  border-radius: 10px;
+  margin-right: 3em;
+  margin-bottom: 3em;
+  box-sizing: border-box;
+  text-align: center;
+}
+.book-ui .cover {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    transform-origin: 0% 100%;
+    border-radius: 3px;
+    background-color: #b8dbd9;
+    z-index: 10;
+}
+ .book-ui .cover.front:before {
+    content: "";
+    position: absolute;
+    width: 4px;
+    height: 100%;
+    left: 0;
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    background-color: #586f7c
+}
+.book-ui .cover figure {
+  position: absolute;
+  left:6px;
+  right:2px;
+  bottom:2px;
+  margin: 0;
+  height: 50%;
+  z-index: -1;
+}
+.book-ui .cover figure img {
+  width: 100px;
+  height: 100%;
+  margin: auto;
+  border-radius: 5px;
+  
+}
+.book-ui div.pages div:before {
+  position: absolute;
+    width: 0px;
+    height: 120px;
+    bottom: 0;
+    content: "";
+    box-shadow: 0px 0px 30px 5px #333;
+    transform: rotateX(82deg) rotateZ(93deg) translateX(-3px);
+    z-index: 1;
+    transform-origin: bottom;
+}
+
+.book-ui .cover.front {
+  left: 0;
+  transform: rotateY(-23.1deg);
+  transition: transform .3s;
+  cursor: pointer;
+}
+
+.book-ui .cover h4 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-align: center;
+  margin-top: 1.5rem;
+  font-weight: normal;
+  font-size: 1.5vmax;
+  font-size: 1rem;
+  padding: 0 0.75rem;
+  word-break: keep-all;
+  user-select: none;
+}
+
+.book-ui .pages {
+    padding: 0;
+    position: absolute;
+    top: 3px;
+    left: 0;
+    right: 0;
+    bottom: 3px;
+    transform-style: preserve-3d;
+    margin: 0;
+    text-align: left;
+    z-index: 5;
+}
+.book-ui div.pages div {
+  border: 1px solid #eee;
+  background-color: #f4f4f9;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform-origin: 0% 100%;
+  transform-style: flat;
+  text-align: center;
+  font-size: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+}
+.book-ui div .pages div:nth-child(1) {
+    transform: rotateY(-23deg);
+    transition: box-shadow .3s;
+}
+.book-ui div.pages div:nth-child(2) {
+    transform: rotateY(-20deg);
+}
+.book-ui div.pages div:nth-child(3) {
+    transform: rotateY(-17deg);
+}
+.book-ui div.pages div div .open {
+    transform: translate(-50%, -50%);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    text-decoration: none;
+    border: 1px solid;
+    padding: .5rem .75rem;
+    border-radius: 8px;
+}
+
+.book-ui .cover .back {
+    left: -0px;
+    right: -3px;
+    transform: rotateY(-10deg);
+    background-color: #586f7c;
+    z-index: 0;
+}
+
+.book-ui:hover .cover.front {
+  transform: rotateY(-120deg);
+}
+.book-ui:hover .cover.front:after {
+    position: absolute;
+    content: "";
+    width: 0;
+    height: 120px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    box-shadow: 0px 0px 20px 3px #333;
+    transform: rotateX(87deg) rotateZ(90deg) translateX(0px);
+    transform-origin: bottom;
+}
+.book-ui:hover .cover h4 {
+  display: block;
+  
+}
+.book-ui:hover .pages div:nth-child(1):before {
+  box-shadow: none;
+}
+.book-ui:hover div .pages div div .open:hover {
+      box-shadow: 0 0 20px 4px #ccc;
+}
+
+
+
+
+.horizontal-book-item {
+  background-color: rgb(255, 255, 255);
+    color: rgba(0, 0, 0, 0.87);
+    transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    border-radius: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    overflow: hidden;
+}
+.horizontal-book-item .avatar {
+  width: 100px;
+  border-radius: 10px;
+
+}
+
+.horizontal-book-item  button {
+  text-transform: capitalize;
+  border-radius: 35px;
+  
+}
+
+.horizontal-book-item h4 {
+  font-size: 12px;
+  font-weight: bold;
+
+}
+
+.horizontal-book-item p {
+  font-size: 12px;
+ 
+}
+
+.horizontal-book-item span {
+  color: #28B8B8;
+}
+
+@media(max-width: 568px){
+ 
+  .horizontal-book-item p {
+    font-size: 9px;
+  }
+  .horizontal-book-item  button {
+    font-size: 9px;
+    
+  }
+}
+
+.shelf button  {
+  transition: all .5s;
+  border-radius: 50%;
+  height: 60px; 
+  width: 60px;
+  position: absolute;
+  left: 50%;
+  top: 7%;
+}
+
+.shelf button .avatar {
+  height: 30px; 
+  width: 30px;
+}
+
+.shelf button svg  {
+font-size: "16px";
+color: rgba(232, 13, 13, 0.931);
+}
+
+
