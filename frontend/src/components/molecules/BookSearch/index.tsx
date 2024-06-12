@@ -1,8 +1,9 @@
-import { Autocomplete, TextField } from "@mui/material";
+import { Autocomplete, Box, TextField } from "@mui/material";
 import { FC } from "react";
 
-import { BookWithAdditionalProperties } from "@components/particles/types/book";
+import { BookWithAdditionalProperties } from "components/particles/types/book";
 import BookItem from "../BookItem";
+import classes from "./index.module.css";
 
 interface BookSearchProps {
   books: BookWithAdditionalProperties[];
@@ -16,18 +17,24 @@ const BookSearch: FC<BookSearchProps> = ({ books, onAddBook, addLoading }) => {
       freeSolo
       disablePortal
       renderInput={(params) => (
-        <TextField {...params} placeholder="Search by title..." />
+        <TextField
+          className={classes["input-search"]}
+          {...params}
+          placeholder="Search by title..."
+        />
       )}
       getOptionLabel={(option: any) => option.title}
       options={books || []}
       renderOption={(props, option: BookWithAdditionalProperties) => (
-        <BookItem
-          key={option.id}
-          book={option}
-          direction="horizontal"
-          onAddBook={onAddBook}
-          addLoading={addLoading}
-        />
+        <Box style={{ margin: "1rem auto", width: "95%" }}>
+          <BookItem
+            key={option.title}
+            book={option}
+            direction="horizontal"
+            onAddBook={onAddBook}
+            addLoading={addLoading}
+          />
+        </Box>
       )}
     />
   );

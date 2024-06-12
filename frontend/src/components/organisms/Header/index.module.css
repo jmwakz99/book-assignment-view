@@ -1,0 +1,23 @@
+.header-container {
+  background: url('assets/bg.webp');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  min-height: 350px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.header-container .book-search {
+  width: 55%;
+  margin: 0 auto;
+  
+}
+
+@media(max-width: 568px){
+  .header-container .book-search {
+    width: 95%;
+    margin: 0 auto;
+   }
+}

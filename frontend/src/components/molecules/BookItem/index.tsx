@@ -7,8 +7,8 @@ import {
 } from "@mui/material";
 import { FC } from "react";
 
-import { BookWithAdditionalProperties } from "@components/particles/types/book";
-import Button from "../../atoms/Button";
+import Button from "components/atoms/Button";
+import { BookWithAdditionalProperties } from "components/particles/types/book";
 import classes from "./index.module.css";
 
 interface BookItemProps {

@@ -1,0 +1,10 @@
+.input-search {
+  background-color: aliceblue;
+  border: 0;
+  outline: none;
+  transition: all .5s;
+}
+.input-search:focus {
+  border: 0;
+  outline: none;
+}
