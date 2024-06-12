@@ -46,6 +46,12 @@ yarn install - if you are using yarn
 
 ```
 
+Incase of dependency issues, when installing with npm, run following command
+
+```bash
+npm install --legacy-peer-deps
+```
+
 Install backend dependencies
 
 ```bash
