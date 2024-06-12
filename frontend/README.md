@@ -90,7 +90,7 @@ yarn test - if using yarn
 Start storybook - frontend
 
 ```bash
-npm storybook  - if using npm
+npm run storybook  - if using npm
 yarn storybook - if using yarn
 
 ```

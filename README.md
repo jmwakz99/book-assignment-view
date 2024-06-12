@@ -40,7 +40,7 @@ Install frontend dependencies
 
 ```bash
 cd frontend
-npm install  - if you are using npm
+npm  install  - if you are using npm
 yarn install - if you are using yarn
 
 
@@ -90,7 +90,7 @@ yarn test - if using yarn
 Start storybook - frontend
 
 ```bash
-npm storybook  - if using npm
+npm run storybook  - if using npm
 yarn storybook - if using yarn
 
 ```
