@@ -2,7 +2,7 @@ import { useMemo } from "react";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import GridLoader from "react-spinners/GridLoader";
 
-import { BookContext } from "@components/particles/context/bookContext";
+import { BookContext } from "components/particles/context/bookContext";
 import useBook from "components/particles/hooks/useBook";
 import { routes } from "components/particles/routes";
 import "components/particles/styles/global.css";
