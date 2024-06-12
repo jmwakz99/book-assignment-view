@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import GridLoader from "react-spinners/GridLoader";
 
+import { CircularProgress } from "@mui/material";
 import { BookContext } from "components/particles/context/bookContext";
 import useBook from "components/particles/hooks/useBook";
 import { routes } from "components/particles/routes";
@@ -42,12 +42,9 @@ const App = () => {
 
   if (fetchBooksLoading || fetchBooksLoading === undefined) {
     return (
-      <GridLoader
-        loading
-        size={20}
-        color="#28b8b8"
-        aria-label="Loading Spinner"
-        cssOverride={{
+      <CircularProgress
+        size="lg"
+        style={{
           position: "absolute",
           top: "40%",
           left: "50%",

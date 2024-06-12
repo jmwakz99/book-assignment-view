@@ -50,7 +50,7 @@ const useBook = () => {
     setRemoveBookLoading(false);
   };
 
-  const readingList = books.filter((book) => book.added);
+  const readingList = (books || []).filter((book) => book.added);
 
   useEffect(() => {
     fetchBooks();
