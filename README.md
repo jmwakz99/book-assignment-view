@@ -12,12 +12,6 @@ Advantages of Atomic Design
 - Improve Collaboration - A shared design language based on Atomic Design principles can enhance communication, usage and contributions since it’s easier to understand the codebase.
 - Promotes Code Quality - As we create a sub-ecosystem for each component feature, each component or service has its isolated environment, including styles, actions, and tests. This isolation makes testing more effective and ensures consistent code quality.
 
-## Tech Stack
-
-**Client:** React, MUI, Storybook, Jest and React testing library, Graphql, Apollo client and Codegen
-
-**Server:** Node, Express
-
 ## Acknowledgements
 
 - [Atomic Design](https://bradfrost.com/)
@@ -94,3 +88,9 @@ npm storybook  - if using npm
 yarn storybook - if using yarn
 
 ```
+
+## Tech Stack
+
+**Client:** React, MUI, Storybook, Jest and React testing library, Graphql, Apollo client and Codegen
+
+**Server:** Node, Express
