@@ -16,6 +16,7 @@ interface ButtonProps {
   loading?: boolean;
   icon?: "close" | "delete";
   testId?: string;
+  disabled?: boolean;
 }
 
 const Button: FC<ButtonProps> = ({
@@ -25,6 +26,7 @@ const Button: FC<ButtonProps> = ({
   loading,
   icon,
   testId,
+  disabled,
 }) => {
   if (buttonType === "icon-button") {
     return (
@@ -33,7 +35,7 @@ const Button: FC<ButtonProps> = ({
         variant="text"
         onClick={onClick}
         data-testid={testId}
-        disabled={loading}
+        disabled={disabled || loading}
         className={classes.btn}
       >
         <Avatar
@@ -51,7 +53,7 @@ const Button: FC<ButtonProps> = ({
       size="small"
       onClick={onClick}
       data-testid={testId}
-      disabled={loading}
+      disabled={disabled || loading}
     >
       {loading ? "Loading..." : label}
     </MUIButton>

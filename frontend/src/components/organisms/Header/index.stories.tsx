@@ -22,19 +22,19 @@ export const Default: Story = {
   args: {
     books: [
       {
-        id: 1,
+        added: true,
         title: "Book title 1",
         coverPhotoURL: "https://picsum.photos/200/300",
         author: "Author name",
       },
       {
-        id: 2,
+        added: false,
         title: "Book title 2",
         coverPhotoURL: "https://picsum.photos/200/300",
         author: "Author name",
       },
       {
-        id: 3,
+        added: true,
         title: "Book title 3",
         coverPhotoURL: "https://picsum.photos/200/300",
         author: "Author name",

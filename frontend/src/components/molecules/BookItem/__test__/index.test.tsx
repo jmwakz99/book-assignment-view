@@ -4,7 +4,7 @@ import BookItem from "..";
 
 test("Should render book item", () => {
   const book = {
-    id: 1,
+    added: false,
     title: "Book title",
     coverPhotoURL: "https://picsum.photos/200/300",
     author: "Author name",
@@ -19,7 +19,7 @@ test("Should render book item", () => {
 test("Should remove book item when delete button is clicked", () => {
   const onDeleteBook = jest.fn();
   const book = {
-    id: 1,
+    added: false,
     title: "Book title",
     coverPhotoURL: "https://picsum.photos/200/300",
     author: "Author name",
@@ -33,13 +33,13 @@ test("Should remove book item when delete button is clicked", () => {
 
   fireEvent.click(deleteButton);
 
-  expect(onDeleteBook).toBeCalledWith(book.id);
+  expect(onDeleteBook).toBeCalledWith(book);
 });
 
 test("Should add book when add button is clicked", () => {
   const onAddBook = jest.fn();
   const book = {
-    id: 1,
+    added: false,
     title: "Book title",
     coverPhotoURL: "https://picsum.photos/200/300",
     author: "Author name",

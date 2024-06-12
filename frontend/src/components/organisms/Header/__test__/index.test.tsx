@@ -5,7 +5,7 @@ import Header from "..";
 test("Should render correctly", () => {
   const books = [
     {
-      id: 1,
+      added: false,
       title: "Book title 1",
       coverPhotoURL: "https://picsum.photos/200/300",
       author: "Author name 1",

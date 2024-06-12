@@ -7,7 +7,7 @@ export const BookContext = createContext({
   books: [],
   readingList: [],
   addBookToReadingList: (book: BookWithAdditionalProperties) => {},
-  removeBookFromReadingList: (id: number) => {},
+  removeBookFromReadingList: (book: BookWithAdditionalProperties) => {},
   fetchBooksLoading: false,
   removeBookLoading: false,
   addBookLoading: false,

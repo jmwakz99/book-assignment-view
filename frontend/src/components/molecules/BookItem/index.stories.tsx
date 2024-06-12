@@ -32,7 +32,7 @@ export const Default: Story = {
   args: {
     direction: "vertical",
     book: {
-      id: 1,
+      added: true,
       title: "Book title",
       coverPhotoURL: "https://picsum.photos/200/300",
       author: "Author name",
@@ -45,7 +45,6 @@ export const Horizontal: Story = {
   args: {
     direction: "horizontal",
     book: {
-      id: 1,
       title: "Book title",
       coverPhotoURL: "https://picsum.photos/200/300",
       author: "Author name",
@@ -57,7 +56,7 @@ export const Vertical: Story = {
   args: {
     direction: "vertical",
     book: {
-      id: 1,
+      added: false,
       title: "Book title",
       coverPhotoURL: "https://picsum.photos/200/300",
       author: "Author name",

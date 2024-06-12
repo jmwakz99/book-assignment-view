@@ -8,9 +8,10 @@ import classes from "./index.module.css";
 
 interface BookAssignmentTemplateProps {
   books: BookWithAdditionalProperties[];
+  readingList?: BookWithAdditionalProperties[];
   onAddBook: (book: BookWithAdditionalProperties) => void;
   addLoading: boolean;
-  onDeleteBook: (id: number) => void;
+  onDeleteBook: (book: BookWithAdditionalProperties) => void;
   deleteLoading: boolean;
 }
 
@@ -20,6 +21,7 @@ const BookAssignmentTemplate: FC<BookAssignmentTemplateProps> = ({
   addLoading,
   onDeleteBook,
   deleteLoading,
+  readingList = [],
 }) => {
   return (
     <>
@@ -27,12 +29,17 @@ const BookAssignmentTemplate: FC<BookAssignmentTemplateProps> = ({
       <Box className={classes["book-list"]}>
         <Typography component="h4">Currently reading</Typography>
         <Grid container>
-          {books.map((book) => (
+          {!Boolean(readingList.length) && (
+            <Grid item xs={6} sm={3} md={4} mt="16px">
+              Your list is empty.
+            </Grid>
+          )}
+          {readingList.map((book) => (
             <Grid item xs={6} sm={3} md={4} key={book.title} mt="16px">
               <BookItem
                 book={book}
                 direction="vertical"
-                onDeleteBook={() => onDeleteBook(book.id as number)}
+                onDeleteBook={() => onDeleteBook(book)}
                 deleteLoading={deleteLoading}
                 icon="close"
               />

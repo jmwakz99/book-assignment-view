@@ -15,7 +15,7 @@ interface BookItemProps {
   book: BookWithAdditionalProperties;
   direction: "vertical" | "horizontal";
   onAddBook?: (book: BookWithAdditionalProperties) => void;
-  onDeleteBook?: (id: number) => void;
+  onDeleteBook?: (Book: BookWithAdditionalProperties) => void;
   deleteLoading?: boolean;
   addLoading?: boolean;
   icon?: "close" | "delete";
@@ -38,7 +38,8 @@ const BookItem: FC<BookItemProps> = ({
             buttonType="button"
             onClick={() => onAddBook && onAddBook(book)}
             loading={addLoading}
-            label="Read"
+            label={book?.added ? "Added" : "Read"}
+            disabled={book?.added}
             testId="add-button"
           />
         }
@@ -90,7 +91,7 @@ const BookItem: FC<BookItemProps> = ({
         <Box className={`${classes["cover"]} ${classes["back"]}`}></Box>
         <Button
           buttonType="icon-button"
-          onClick={() => onDeleteBook && onDeleteBook(book?.id as number)}
+          onClick={() => onDeleteBook && onDeleteBook(book)}
           testId="delete-button"
           loading={deleteLoading}
           icon={icon}

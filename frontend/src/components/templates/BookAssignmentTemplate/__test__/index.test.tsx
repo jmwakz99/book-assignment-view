@@ -1,11 +1,13 @@
+import { MockedProvider } from "@apollo/client/testing";
 import { render, screen } from "@testing-library/react";
 
+import { getBooksMock } from "components/particles/__mocks__/graphql/book";
 import BookAssignmentTemplate from "..";
 
-test("Should render correctly", () => {
+test("Should render correctly", async () => {
   const books = [
     {
-      id: 1,
+      added: true,
       title: "Book title 1",
       coverPhotoURL: "https://picsum.photos/200/300",
       author: "Author name",
@@ -13,14 +15,17 @@ test("Should render correctly", () => {
   ];
 
   render(
-    <BookAssignmentTemplate
-      books={books}
-      onAddBook={jest.fn()}
-      addLoading={false}
-      onDeleteBook={jest.fn()}
-      deleteLoading={false}
-    />,
+    <MockedProvider mocks={[getBooksMock]} addTypename={false}>
+      <BookAssignmentTemplate
+        books={books}
+        readingList={books}
+        onAddBook={jest.fn()}
+        addLoading={false}
+        onDeleteBook={jest.fn()}
+        deleteLoading={false}
+      />
+    </MockedProvider>,
   );
 
-  expect(screen.getByText("Book title 1")).toBeInTheDocument();
+  expect(await screen.findByText("Book title 1")).toBeInTheDocument();
 });

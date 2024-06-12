@@ -1,25 +1,16 @@
 import { useCallback, useEffect, useState } from "react";
 
-import {
-  Book,
-  useBooksLazyQuery,
-} from "@components/particles/graphql/generated/graphql";
-
-interface ReadingListBook extends Book {
-  id: number;
-}
+import { useBooksLazyQuery } from "@components/particles/graphql/generated/graphql";
+import { BookWithAdditionalProperties } from "../types/book";
 
 const useBook = () => {
   const [getAllBooks, { loading: fetchBooksLoading }] = useBooksLazyQuery();
 
-  const [books, setBooks] = useState<Book[]>([]);
+  const [books, setBooks] = useState<BookWithAdditionalProperties[]>([]);
   const [addBookLoading, setAddBookLoading] = useState<boolean | undefined>();
   const [removeBookLoading, setRemoveBookLoading] = useState<
     boolean | undefined
   >();
-  const [readingList, setReadingList] = useState<ReadingListBook[] | null>(
-    null,
-  );
 
   const fetchBooks = useCallback(async () => {
     try {
@@ -31,33 +22,35 @@ const useBook = () => {
     }
   }, [getAllBooks, setBooks]);
 
-  const addBookToReadingList = async (book: Book) => {
+  const addBookToReadingList = (book: BookWithAdditionalProperties) => {
     setAddBookLoading(true);
 
-    const readingListLength = readingList?.length;
-
-    setReadingList((currentReadingList) => [
-      ...((currentReadingList || []) as ReadingListBook[]),
-      {
-        ...book,
-        id: readingListLength ? readingListLength + 1 : 1,
-      },
-    ]);
+    const allBooks = [...books];
+    const bookIndex = allBooks.findIndex((b) => b.title === book.title);
+    allBooks[bookIndex] = {
+      ...book,
+      added: true,
+    };
+    setBooks(allBooks);
 
     setAddBookLoading(false);
   };
 
-  const removeBookFromReadingList = (id: number) => {
+  const removeBookFromReadingList = (book: BookWithAdditionalProperties) => {
     setRemoveBookLoading(true);
 
-    setReadingList((currentReadingList) =>
-      currentReadingList
-        ? currentReadingList.filter((book) => book.id !== id)
-        : null,
-    );
+    const allBooks = [...books];
+    const bookIndex = allBooks.findIndex((b) => b.title === book.title);
+    allBooks[bookIndex] = {
+      ...allBooks[bookIndex],
+      added: false,
+    };
+    setBooks(allBooks);
 
     setRemoveBookLoading(false);
   };
+
+  const readingList = books.filter((book) => book.added);
 
   useEffect(() => {
     fetchBooks();
