@@ -39,7 +39,7 @@ Clone the project
 Go to the project directory
 
 ```bash
-  cd fullstack-take-home-test
+  cd book-assignment-view
 ```
 
 Install frontend dependencies
