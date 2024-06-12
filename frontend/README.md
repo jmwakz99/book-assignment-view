@@ -26,14 +26,14 @@ Utilzed [Storybook](https://storybook.js.org/) for documentation of the componen
 Clone the project
 
 ```bash
-  git clone https://github.com/jmwakz99/book-assignment-view.git
+git clone https://github.com/jmwakz99/book-assignment-view.git
 
 ```
 
 Go to the project directory
 
 ```bash
-  cd book-assignment-view
+cd book-assignment-view
 ```
 
 Install frontend dependencies
