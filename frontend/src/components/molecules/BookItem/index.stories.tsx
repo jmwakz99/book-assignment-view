@@ -37,6 +37,7 @@ export const Default: Story = {
       coverPhotoURL: "https://picsum.photos/200/300",
       author: "Author name",
     },
+    icon: "close",
   },
 };
 

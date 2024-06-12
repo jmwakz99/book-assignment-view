@@ -1,13 +1,13 @@
 .shelf {
-  margin: 3em;
-  text-align: center;
+  margin-top: 1rem;
+ 
+  
 }
 .shelf .book-ui {
   width: 120px;
   height: 160px;
   transform-style: preserve-3d;
   perspective: 900px;
-  position: relative;
   display: inline-block;
   border-radius: 10px;
   margin-right: 3em;
@@ -70,7 +70,7 @@
   cursor: pointer;
 }
 
-.book-ui .cover h4 {
+.book-ui .cover h3 {
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
@@ -216,22 +216,24 @@
 }
 
 .shelf button  {
-  transition: all .5s;
-  border-radius: 50%;
-  height: 60px; 
-  width: 60px;
+  transition: all .5s !important;
+  border-radius: 50% !important;
+  height: 60px !important; 
+  width: 60px !important;
   position: absolute;
-  left: 50%;
-  top: 7%;
+  left: 75%;
+  top: -28%;
+  position: absolute;
 }
 
 .shelf button .avatar {
-  height: 30px; 
-  width: 30px;
+  height: 30px !important; 
+  width: 30px !important;
+
 }
 
 .shelf button svg  {
-font-size: "16px";
+font-size: 16px;
 color: rgba(232, 13, 13, 0.931);
 }
 

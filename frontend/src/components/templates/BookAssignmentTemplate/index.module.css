@@ -1,0 +1,26 @@
+
+.book-list {
+  width: 55%;
+  margin: 50px auto;
+  
+}
+.book-list h4 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #28b8b8;
+  line-height: 1.4;
+  letter-spacing: -.003em;
+
+}
+
+@media(max-width: 897px){
+  .book-list {
+    width: 100%;
+    margin: 30px auto;
+    
+  }
+
+}
+
+
+

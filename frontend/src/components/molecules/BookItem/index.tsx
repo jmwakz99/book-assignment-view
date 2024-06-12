@@ -74,7 +74,7 @@ const BookItem: FC<BookItemProps> = ({
     <Box className={classes.shelf}>
       <Box className={classes["book-ui"]}>
         <Box className={`${classes["cover"]} ${classes["front"]}`}>
-          <Typography component="h4">{book?.title}</Typography>
+          <Typography component="h3">{book?.title}</Typography>
           <figure>
             <img
               src={book?.coverPhotoURL as string}
@@ -88,14 +88,14 @@ const BookItem: FC<BookItemProps> = ({
           </Box>
         </Box>
         <Box className={`${classes["cover"]} ${classes["back"]}`}></Box>
+        <Button
+          buttonType="icon-button"
+          onClick={() => onDeleteBook && onDeleteBook(book?.id as number)}
+          testId="delete-button"
+          loading={deleteLoading}
+          icon={icon}
+        />
       </Box>
-      <Button
-        buttonType="icon-button"
-        onClick={() => onDeleteBook && onDeleteBook(book?.id as number)}
-        testId="delete-button"
-        loading={deleteLoading}
-        icon={icon}
-      />
     </Box>
   );
 };
